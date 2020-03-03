@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { QuestionService } from './services/question.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateGameComponent } from './components/create-game/create-game.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,10 @@ import { CreateGameComponent } from './components/create-game/create-game.compon
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [
     QuestionService,
