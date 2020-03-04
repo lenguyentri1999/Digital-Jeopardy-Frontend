@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { FlashCardComponent } from './components/flash-card/flash-card.component';
+import { PlayGameComponent } from './components/play-game/play-game.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FlashCardComponent } from './components/flash-card/flash-card.component
     AppComponent,
     CreateGameComponent,
     FlashCardComponent,
+    PlayGameComponent,
   ],
   imports: [
     BrowserModule,
