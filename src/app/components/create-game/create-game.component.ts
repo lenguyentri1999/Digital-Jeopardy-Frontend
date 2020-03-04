@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from 'src/app/models/game';
 import { Question } from 'src/app/models/question';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-create-game',
@@ -16,6 +17,7 @@ export class CreateGameComponent implements OnInit {
 
   constructor(
     protected fb: FormBuilder,
+    protected qService: QuestionService,
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,7 @@ export class CreateGameComponent implements OnInit {
   createQuestion() {
     const question = new Question(this.questionForm.get('q').value, this.questionForm.get('a').value);
     this.game.addQuestion(this.questionForm.get('category').value, question);
-    console.log(JSON.stringify(this.game));
+    this.qService.sendGame(this.game);
   }
 
 }
