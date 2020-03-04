@@ -1,13 +1,10 @@
 import { Question } from './question';
 
 export class Game {
-    categories: string[];
-    questions: Map<string, Question[]>;
+    public questions: Map<string, Question[]>;
 
     constructor() {
-        this.categories = [];
         this.questions = new Map<string, Question[]>();
-
     }
 
     public addCategory(category: string) {
@@ -20,5 +17,9 @@ export class Game {
         }
         const questions = this.questions.get(category);
         questions.push(q);
+    }
+
+    public getAllCategories() {
+        return Array.from(this.questions.keys());
     }
 }

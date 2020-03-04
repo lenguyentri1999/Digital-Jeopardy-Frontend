@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { QuestionService } from './services/question.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,11 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { FlashCardComponent } from './components/flash-card/flash-card.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateGameComponent
+    CreateGameComponent,
+    FlashCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,12 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     QuestionService,

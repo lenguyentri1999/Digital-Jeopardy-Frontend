@@ -1,6 +1,50 @@
 <mat-card>
-    <button mat-button>Create New Category</button>
+    <mat-form-field>
+        <mat-label>New Category?</mat-label>
+        <input matInput [(ngModel)]="currCategory">
+    </mat-form-field>
+    <br>
+    <button mat-button (click)="createCategory(currCategory)">Add category!</button>
 </mat-card>
-<mat-card>
-    <button mat-button>Create New Question</button>
+
+<mat-card *ngIf="game.getAllCategories().length > 0">
+    <form [formGroup]="questionForm">
+        <mat-form-field>
+            <mat-label>Pick a category...</mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let c of game.getAllCategories()" [value]="c">
+                    {{c}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-label>Write a prompt...</mat-label>
+            <input matInput formControlName="q" placeholder="Prompt?">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-label>Write an answer...</mat-label>
+            <input matInput formControlName="a" placeholder="Answer?">
+        </mat-form-field>
+        <br>
+        <button mat-button (click)="createQuestion()">Add question!</button>
+
+    </form>
+
 </mat-card>
+<mat-card *ngIf="game.getAllCategories().length == 0">Please add at least one category to add a question!</mat-card>
+
+<div style="width: 20vw">
+    <flash-card class="flash-card" [catIndex]="1">
+        <div class="flash-card-front">
+            100
+        </div>
+        <div class="flash-card-back" style="text-align: center">
+            Back of card
+        </div>
+    </flash-card>`
+
+</div>
