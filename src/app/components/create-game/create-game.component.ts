@@ -14,6 +14,7 @@ export class CreateGameComponent implements OnInit {
   currCategory: string;
 
   questionForm: FormGroup;
+  nameForm: FormGroup;
 
   constructor(
     protected fb: FormBuilder,
@@ -27,6 +28,13 @@ export class CreateGameComponent implements OnInit {
       a: new FormControl('', [Validators.required]),
       category: new FormControl('', [Validators.required])
     })
+    this.nameForm = this.fb.group({
+      name: new FormControl('', [Validators.required])
+    })
+  }
+
+  setName() {
+    this.game.setName(this.nameForm.get('name').value);
   }
 
   createCategory(c: string) {
@@ -37,6 +45,10 @@ export class CreateGameComponent implements OnInit {
   createQuestion() {
     const question = new Question(this.questionForm.get('q').value, this.questionForm.get('a').value);
     this.game.addQuestion(this.questionForm.get('category').value, question);
+  }
+
+  submitGame() {
+    this.setName();
     this.qService.sendGame(this.game);
   }
 

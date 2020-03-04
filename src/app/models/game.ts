@@ -2,6 +2,7 @@ import { Question } from './question';
 
 export class Game {
     public questions = {};
+    public name: string;
 
     constructor() {
         
@@ -17,6 +18,10 @@ export class Game {
 
     public getAllCategories() {
         return Object.keys(this.questions);
+    }
+
+    public setName(n: string) {
+        this.name = n;
     }
 
 }

@@ -1,4 +1,13 @@
 <mat-card>
+    <form [formGroup]="nameForm">
+        <mat-form-field>
+            <mat-label>Name?</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br>
+    </form>
+</mat-card>
+<mat-card>
     <mat-form-field>
         <mat-label>New Category?</mat-label>
         <input matInput [(ngModel)]="currCategory">
@@ -36,8 +45,9 @@
 
 </mat-card>
 <mat-card *ngIf="game.getAllCategories().length == 0">Please add at least one category to add a question!</mat-card>
+<button mat-button (click)="submitGame()">Submit game!</button>
 
-<div style="width: 20vw">
+<!-- <div style="width: 20vw">
     <flash-card class="flash-card" [catIndex]="1">
         <div class="flash-card-front">
             100
@@ -47,5 +57,5 @@
         </div>
     </flash-card>`
 
-</div>
+</div> -->
 <!-- {{game.convertToJson()}} -->
