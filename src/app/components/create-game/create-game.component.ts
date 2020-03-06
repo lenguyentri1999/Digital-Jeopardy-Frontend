@@ -22,7 +22,7 @@ export class CreateGameComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.game = new Game();
+    this.game = new Game({}, '');
     this.questionForm = this.fb.group({
       q: new FormControl('', [Validators.required]),
       a: new FormControl('', [Validators.required]),

@@ -1,11 +1,13 @@
 import { Question } from './question';
+import { max } from 'rxjs/operators';
 
 export class Game {
     public questions = {};
     public name: string;
 
-    constructor() {
-        
+    constructor(questions: any, name: string) {
+        this.questions = questions;
+        this.name = name;
     }
 
     public addCategory(category: string) {
@@ -22,6 +24,20 @@ export class Game {
 
     public setName(n: string) {
         this.name = n;
+    }
+
+    public getMaxSize() {
+        const values = Object.values(this.questions);
+        const lengths: number[] = values.map((v: Question[]) => v.length);
+        return Math.max.apply(null, lengths);
+    }
+
+    public getQuestionAtIndex(c: string, i: number) {
+        const arr: Question[] = this.questions[c];
+        if (i >= arr.length) {
+            return null;
+        }
+        return arr[i];
     }
 
 }

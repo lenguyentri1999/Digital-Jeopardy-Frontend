@@ -1,4 +1,27 @@
+<div *ngIf="!isPlaying">
+    <mat-card *ngFor="let game of (games | async); let i = index">
+        Game {{i}}: {{game.name}}
+        <button mat-button (click)="onPlayButton(game)">Play</button>
+    </mat-card>
 
-<mat-card *ngFor="let game of (games | async)">
-    {{game.name}}
-</mat-card>
+</div>
+<mat-grid-list *ngIf="isPlaying" [cols]="currentGame.getAllCategories().length">
+    <mat-grid-tile *ngFor="let c of currentGame.getAllCategories()">
+        <h1>{{c}}</h1>
+    </mat-grid-tile>
+    <div *ngFor="let i of generateArray(currentGame.getMaxSize())">
+        <mat-grid-tile *ngFor="let c of currentGame.getAllCategories(); let j = index">
+            <!-- {{currentGame.getQuestionAtIndex(c, i).prompt}} -->
+
+            <flash-card class="flash-card" [catIndex]="j" style="width: 80%">
+                <div class="flash-card-front">
+                    100
+                </div>
+                <div class="flash-card-back" style="text-align: center">
+                    <img src="/assets/jeopardy-logo.png" style="max-height: 50%; max-width: 50%;">
+                </div>
+            </flash-card>`
+        </mat-grid-tile>
+
+    </div>
+</mat-grid-list>

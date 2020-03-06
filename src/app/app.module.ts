@@ -15,6 +15,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 import { FlashCardComponent } from './components/flash-card/flash-card.component';
 import { PlayGameComponent } from './components/play-game/play-game.component';
 
@@ -39,6 +41,7 @@ import { PlayGameComponent } from './components/play-game/play-game.component';
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
+    MatGridListModule,
   ],
   providers: [
     QuestionService,

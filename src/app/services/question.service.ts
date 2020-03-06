@@ -26,9 +26,11 @@ export class QuestionService {
     return this.http.get(`${this.baseUrl}/games`)
     .pipe(
       map(obj => {
-        const games = [];
+        const games: Game[] = [];
         Object.keys(obj).forEach(key => {
-          games.push(obj[key]);
+          const deserialized = obj[key];
+          const game = new Game(deserialized.questions, deserialized.name);
+          games.push(game);
         })
         return games;
       })
