@@ -13,7 +13,7 @@
         <mat-grid-tile *ngFor="let c of currentGame.getAllCategories(); let j = index">
             <!-- {{currentGame.getQuestionAtIndex(c, i).prompt}} -->
 
-            <flash-card class="flash-card" [catIndex]="j" style="width: 80%">
+            <flash-card class="flash-card" (click)="openDialog(currentGame.getQuestionAtIndex(c, i))" [catIndex]="j" style="width: 80%">
                 <div class="flash-card-front">
                     {{100 * (i+1)}}
                 </div>

@@ -1,0 +1,14 @@
+<!-- <div class="img-container">
+            <img [class]="answer_class" [src]="imgSrc" *ngIf="doesAnswerContainImage && !answered">
+    </div> -->
+<div class="paragraph-container">
+    <p *ngIf="answered" [class]="answer_class">{{q.answer}}</p>
+    <p *ngIf="!answered" [class]="prompt_class">{{q.prompt}} </p>
+    <!-- <img [class]="question_class" [src]="questionImgSrc" *ngIf="doesQuestionContainImage && answered"> -->
+
+    <!-- <p>{{prompt.question}}</p> -->
+    <button ion-button class="join-action-button" (click)="toggleExit()" *ngIf="!answered">
+        Arrow forward
+    </button>
+
+</div>

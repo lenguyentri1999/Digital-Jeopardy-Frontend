@@ -16,9 +16,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FlashCardComponent } from './components/flash-card/flash-card.component';
 import { PlayGameComponent } from './components/play-game/play-game.component';
+import { QuestionDialogComponent } from './components/question-dialog/question-dialog.component';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { PlayGameComponent } from './components/play-game/play-game.component';
     CreateGameComponent,
     FlashCardComponent,
     PlayGameComponent,
+    QuestionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { PlayGameComponent } from './components/play-game/play-game.component';
     FormsModule,
     ReactiveFormsModule,
     MatGridListModule,
+    MatDialogModule,
   ],
   providers: [
     QuestionService,

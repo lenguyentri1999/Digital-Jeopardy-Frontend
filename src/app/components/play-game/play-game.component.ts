@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/services/question.service';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { Game } from 'src/app/models/game';
+import { MatDialog } from '@angular/material/dialog';
+import { Question } from 'src/app/models/question';
+import { QuestionDialogComponent } from '../question-dialog/question-dialog.component';
 
 @Component({
   selector: 'app-play-game',
@@ -17,6 +20,7 @@ export class PlayGameComponent implements OnInit {
 
   constructor(
     protected qService: QuestionService,
+    protected dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +36,18 @@ export class PlayGameComponent implements OnInit {
 
   generateArray(i: number) {
     return Array.from(Array(i), (x, i) => i);
+  }
+
+  openDialog(q: Question) {
+    console.log(q);
+    setTimeout(() => {
+      const dialogRef = this.dialog.open(QuestionDialogComponent, {
+        width: '50vw',
+        height: '50vh',
+        data: { question: q }
+      });
+
+    }, 1000);
   }
 
   // getKeys(obj: any) {
