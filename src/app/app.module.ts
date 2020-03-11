@@ -21,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FlashCardComponent } from './components/flash-card/flash-card.component';
 import { PlayGameComponent } from './components/play-game/play-game.component';
 import { QuestionDialogComponent } from './components/question-dialog/question-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { QuestionDialogComponent } from './components/question-dialog/question-d
     ReactiveFormsModule,
     MatGridListModule,
     MatDialogModule,
+    MatIconModule,
   ],
   providers: [
     QuestionService,
