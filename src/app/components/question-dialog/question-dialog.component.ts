@@ -31,4 +31,8 @@ export class QuestionDialogComponent implements OnInit {
     this.answer_class = 'animated bounceInRight'
   }
 
+  onCloseDialog(isCorrect: boolean) {
+    this.dialogRef.close(isCorrect);
+  }
+
 }

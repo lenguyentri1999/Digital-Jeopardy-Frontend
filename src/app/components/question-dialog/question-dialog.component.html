@@ -7,8 +7,19 @@
     <!-- <img [class]="question_class" [src]="questionImgSrc" *ngIf="doesQuestionContainImage && answered"> -->
 
     <!-- <p>{{prompt.question}}</p> -->
-    <button ion-button class="join-action-button" (click)="toggleExit()" *ngIf="!answered">
-        Arrow forward
+    <button mat-button class="join-action-button" (click)="toggleExit()" *ngIf="!answered">
+        Show the answer
+        <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_right_alt</mat-icon>
+    </button>
+
+    <button mat-button *ngIf="answered" [class]="answer_class" style="color: green" (click)="onCloseDialog(true)">
+        Correct 
+        <mat-icon aria-hidden="false" aria-label="Example home icon">check_circle</mat-icon>
+    </button>
+
+    <button mat-button *ngIf="answered" [class]="answer_class" style="color: red;" (click)="onCloseDialog(false)">
+        Wrong
+        <mat-icon aria-hidden="false" aria-label="Example home icon">indeterminate_check_box</mat-icon>
     </button>
 
 </div>

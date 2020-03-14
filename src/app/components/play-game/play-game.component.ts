@@ -13,6 +13,7 @@ import { QuestionDialogComponent } from '../question-dialog/question-dialog.comp
 })
 export class PlayGameComponent implements OnInit {
   isPlaying: boolean = false;
+  myScore: number = 0;
 
   games: Observable<Game[]> = new Observable<Game[]>();
   // currentGame: Observable<Game> = new Observable<Game>();
@@ -38,7 +39,7 @@ export class PlayGameComponent implements OnInit {
     return Array.from(Array(i), (x, i) => i);
   }
 
-  openDialog(q: Question) {
+  openDialog(q: Question, price: number) {
     console.log(q);
     setTimeout(() => {
       const dialogRef = this.dialog.open(QuestionDialogComponent, {
@@ -46,8 +47,18 @@ export class PlayGameComponent implements OnInit {
         height: '50vh',
         data: { question: q }
       });
+      dialogRef.afterClosed().subscribe((isCorrect: boolean) => {
+        console.log(isCorrect);
+        if (isCorrect) {
+          this.myScore += price;
+        }
+      })
 
-    }, 1000);
+    },750);
+  }
+
+  onDonePlaying() {
+
   }
 
   // getKeys(obj: any) {
