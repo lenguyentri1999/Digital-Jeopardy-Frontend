@@ -14,6 +14,7 @@ import { QuestionDialogComponent } from '../question-dialog/question-dialog.comp
 export class PlayGameComponent implements OnInit {
   isPlaying: boolean = false;
   myScore: number = 0;
+  nameToSubmit: string = '';
 
   games: Observable<Game[]> = new Observable<Game[]>();
   // currentGame: Observable<Game> = new Observable<Game>();
@@ -31,6 +32,7 @@ export class PlayGameComponent implements OnInit {
 
   onPlayButton(game: Game) {
     this.currentGame = game;
+    this.myScore = 0;
     console.log(this.currentGame);
     this.isPlaying = true;
   }
@@ -57,8 +59,8 @@ export class PlayGameComponent implements OnInit {
     },750);
   }
 
-  onDonePlaying() {
-
+  onDonePlaying(name: string, score: number) {
+    this.qService.sendScore(name, score, this.currentGame.id)
   }
 
   // getKeys(obj: any) {

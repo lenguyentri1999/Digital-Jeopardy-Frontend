@@ -31,7 +31,7 @@ export class FlashCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("ngoninit", this.catIndex)
+    // console.log("ngoninit", this.catIndex)
     this.shadow = "2px 3px 5px " + this.colors[this.catIndex]
   }
 

@@ -1,0 +1,17 @@
+<mat-card *ngFor="let game of (games | async); let i = index">
+    Game {{i+1}}: {{game.name}}
+    <button mat-button (click)="viewRankings(game.id)">View Rankings</button>
+    <mat-card *ngIf="rankingsDict.has(game.id)">
+        <mat-list>
+            <mat-list-item *ngFor="let rank of rankingsDict.get(game.id) | async; let i = index">
+                <b>
+                    {{i+1}}.
+                    {{rank.name}} ||
+                </b> &nbsp; Score: {{rank.score}}
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+        <div *ngFor="let rank of rankingsDict.get(game.id) | async">
+        </div>
+    </mat-card>
+</mat-card>

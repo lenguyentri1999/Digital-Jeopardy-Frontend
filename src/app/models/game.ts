@@ -4,10 +4,12 @@ import { max } from 'rxjs/operators';
 export class Game {
     public questions = {};
     public name: string;
+    public id: string;
 
-    constructor(questions: any, name: string) {
+    constructor(questions: any, name: string, id: string) {
         this.questions = questions;
         this.name = name;
+        this.id = id;
     }
 
     public addCategory(category: string) {

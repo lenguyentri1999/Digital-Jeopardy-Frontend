@@ -17,11 +17,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import { FlashCardComponent } from './components/flash-card/flash-card.component';
 import { PlayGameComponent } from './components/play-game/play-game.component';
 import { QuestionDialogComponent } from './components/question-dialog/question-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 
 
@@ -32,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
     FlashCardComponent,
     PlayGameComponent,
     QuestionDialogComponent,
+    LeaderboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
+    MatListModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     MatGridListModule,

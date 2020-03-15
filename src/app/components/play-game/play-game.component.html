@@ -1,6 +1,6 @@
 <div *ngIf="!isPlaying">
     <mat-card *ngFor="let game of (games | async); let i = index">
-        Game {{i}}: {{game.name}}
+        Game {{i+1}}: {{game.name}}
         <button mat-button (click)="onPlayButton(game)">Play</button>
     </mat-card>
 
@@ -29,6 +29,11 @@
 
     </div>
 </mat-grid-list>
-<mat-card style="text-align: center;">
-    <button mat-button *ngIf="isPlaying">I'm done playing, submit my score!</button>
+<mat-card style="text-align: center;" *ngIf="isPlaying">
+
+    <mat-form-field>
+        <mat-label>Enter your name: </mat-label>
+        <input matInput [(ngModel)]="nameToSubmit">
+    </mat-form-field>
+    <button mat-button (click)="isPlaying = !isPlaying" (click)="onDonePlaying(nameToSubmit, myScore)">I'm done playing, submit my score!</button>
 </mat-card>
